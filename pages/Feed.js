@@ -16,7 +16,7 @@ const Feed = () => {
   return (
     <div className="overflow-scroll h-[800px]">
       <div className="feedCard flex items-start gap-2 p-4 hover:bg-surface-2 hover:rounded-xl transition-all duration-200  ease-linear mb-4">
-        <Image src={user} width={60} height={60} className="rounded-full" />
+        <Image alt='wall' src={user} width={60} height={60} className="rounded-full" />
         <div className="post h-auto">
           <div className="username flex items-center text-text-1 gap-2">
             <h1 className="text-[1rem] font-bold">Shailesh</h1>
@@ -36,7 +36,7 @@ const Feed = () => {
               aliquid odio. Saepe, eum quas!
             </p>
             {wall && (
-              <Image src={wall} className="h-auto w-full rounded-md mb-4" />
+              <Image alt='wall' src={wall} className="h-auto w-full rounded-md mb-4" />
             )}{" "}
             {/* {embedLinks &&
               embedLinks?.map((embedLink, index) => (

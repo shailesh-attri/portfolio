@@ -23,7 +23,7 @@ const Work = () => {
         </p>
         <div className="flex items-center justify-center gap-4 w-full">
           {wall && (
-            <Image className="w-[50%] h-[200px] mb-4 rounded" src={wall} />
+            <Image alt="work" className="w-[50%] h-[200px] mb-4 rounded" src={wall} />
           )}
           <div className="flex w-[50%] flex-col items-center justify-center gap-4">
             <a className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">

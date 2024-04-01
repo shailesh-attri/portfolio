@@ -26,9 +26,10 @@ const Sidebar = () => {
   return (
     <div className="w-[50%]">
       <div className="banner relative">
-        <Image src={banner} className="w-full h-[200px]" />
+        <Image alt="work" src={banner} className="w-full h-[200px]" />
         <div className="image absolute top-[70%]  mx-4">
           <Image
+            alt="work"
             src={dp}
             className=" w-[150px] h-[150px] rounded-full border-2 border-white"
           />

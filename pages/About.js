@@ -28,6 +28,7 @@ const About = () => {
 
       {wall && (
         <Image
+          alt='wall'
           src={wall}
           className="h-[300px] w-full text-center rounded-md mb-1"
         />
@@ -54,7 +55,7 @@ const About = () => {
       <h1 className="font-bold text-[2rem] text-gray-300" id='skills'>Skills</h1>
       <div className="flex items-center justify-center gap-2 flex-wrap mb-8">
       {skills && skills?.map((skill, i) =>(
-        <span className="border-2 border-gray-600 px-4 py-2 text-brand-fill rounded-lg">{skill}</span>
+        <span key={i} className="border-2 border-gray-600 px-4 py-2 text-brand-fill rounded-lg">{skill}</span>
       ))}
       </div>
       <h1 className="font-bold text-[2rem] text-gray-300" id='education'>Education</h1>
