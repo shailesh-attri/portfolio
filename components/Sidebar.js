@@ -36,7 +36,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      <div className="w-full flex items-center justify-end gap-16 px-4 mt-4 sm:gap-4 sm:text-sm">
+      <div className="w-full flex items-center justify-end gap-16 px-4 mt-4 sm:gap-8 sm:text-sm">
         <span className="">
           <span className="font-bold">24</span> Posts
         </span>
