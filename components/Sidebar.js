@@ -9,6 +9,7 @@ import { SlCalender } from "react-icons/sl";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import SocialIcons from "./SocialIcons";
+import { MdDownload } from "react-icons/md";
 const Sidebar = () => {
   const [message, setMessage] = useState("");
 
@@ -24,18 +25,18 @@ const Sidebar = () => {
     }
   };
   return (
-    <div className="w-[50%]">
+    <div className="w-[50%] lg:w-[100%]">
       <div className="banner relative">
-        <Image alt="work" src={banner} className="w-full h-[200px]" />
-        <div className="image absolute top-[70%]  mx-4">
+        <Image alt="work" src={banner} className="w-full h-[200px] sm:h-[180px]" />
+        <div className="image absolute top-[70%] sm:top-[80%]  mx-4">
           <Image
             alt="work"
             src={dp}
-            className=" w-[150px] h-[150px] rounded-full border-2 border-white"
+            className=" w-[150px] h-[150px] sm:w-[100px] sm:h-[100px] rounded-full border-2 border-white"
           />
         </div>
       </div>
-      <div className="w-full flex items-center justify-end gap-16 px-4 mt-4">
+      <div className="w-full flex items-center justify-end gap-16 px-4 mt-4 sm:gap-4 sm:text-sm">
         <span className="">
           <span className="font-bold">24</span> Posts
         </span>
@@ -46,20 +47,20 @@ const Sidebar = () => {
       </div>
       <div className="overview px-4 p-4 ">
         <div className="flex items-center justify-between mt-3">
-        <span className="font-bold text-[2rem] flex items-center justify-center gap-2">Shailesh Attri </span>
+        <span className="font-bold text-[2rem] sm:text-[1.2rem] flex items-center justify-center gap-2">Shailesh Attri </span>
         <span className="  bg-brand-fill px-3 py-1 rounded-full flex items-center justify-center gap-2 cursor-pointer">
-          <IoLogoInstagram />
-          follow
+          <MdDownload />
+          Resume
         </span>
         </div>
-        <p className="mb-2 text-gray-300">Brings ideas to life with code! ✨</p>
-        <p className="text-gray-300">
+        <p className="mb-2 text-gray-300 sm:text-sm">Brings ideas to life with code! ✨</p>
+        <p className="text-gray-300 sm:text-sm">
           Junior web developer. Creative{" "}
           <span className="text-brand-fill">#MERN</span> developer. Content
           creator. Lorem ipsum dolor sit amet.
         </p>
       </div>
-      <div className="grid grid-cols-2 items-start justify-start px-4 p-4 gap-1 text-gray-400">
+      <div className="grid grid-cols-2 items-start justify-start px-4 p-4 gap-1 text-gray-400 sm:text-sm">
         <span className="flex items-center  gap-2">
           <MdWork />
           Available

@@ -77,6 +77,10 @@ html {
 body{
   height: 100vh;
   scroll-behavior: smooth;
+  background: url("../assets/bg-wall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
   
 }
 body::-webkit-scrollbar{

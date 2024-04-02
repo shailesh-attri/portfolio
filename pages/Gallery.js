@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SocialIcons from "@/components/SocialIcons";
 import Image from "next/image";
+import { urlFor,client } from "@/app/sanity_client";
 const ImgSrc = [
   "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80",
   "https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80",
@@ -10,22 +11,34 @@ const ImgSrc = [
   "https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2832&amp;q=80",
 ];
 const Gallery = () => {
+  const [gallery, setGallery] = useState([])
+  useEffect(()=>{
+    const query = '*[_type == "gallery"]';
+    client.fetch(query).then((data)=>{
+      setGallery(data[0].galleryPictures)
+      console.log(data[0].galleryPictures);
+    })
+  },[])
   
   return (
     <div className="overflow-scroll h-[800px] px-4 p-4 relative">
       <h1 className="font-bold text-[2rem] mb-4">My Photos</h1>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 mb-4">
-        {ImgSrc &&
-          ImgSrc?.map((img, i) => (
+      {gallery && gallery.map((img, i)=>(
+
             <div
-              key={i}>
+            key={i}
+            >
               <Image 
-                class="object-cover object-center w-full h-40 max-w-full rounded-lg"
-                src={img}
+                className="  max-w-full h-40 rounded-lg "
+                src={`${img}`}
                 alt="gallery-photo"
+                width={200} // Assuming `img` object has a `width` property
+                height={200}
               />
             </div>
-          ))}
+      ))}
+         
       </div>
       
       <SocialIcons></SocialIcons>
