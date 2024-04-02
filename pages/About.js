@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import wall from "../assets/p1.jpg";
 import sign from "../assets/signature.png";
 import SocialIcons from "@/components/SocialIcons";
+import { MyApi } from "@/app/api/api";
 const About = () => {
-  const skills = ['html5', 'css', 'JavaScript','ReactJs', 'NextJs', 'ExpressJS', 'NodeJS', 'Sanity']
+  const {skills} = useContext(MyApi)
   return (
     <div className="overflow-scroll h-[800px] px-4 p-4">
       <div className="flex items-center justify-start gap-2">

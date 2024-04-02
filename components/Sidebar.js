@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Image from "next/image";
 import banner from "../assets/banner.png";
 import dp from "../assets/dp.jpg";
@@ -10,7 +10,12 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import SocialIcons from "./SocialIcons";
 import { MdDownload } from "react-icons/md";
+import { MyApi } from "@/app/api/api";
 const Sidebar = () => {
+  const {handlerAPI,dpImage, bannerImage, feed, work,resume} = useContext(MyApi)
+  useEffect(()=>{
+    handlerAPI()
+  },[])
   const [message, setMessage] = useState("");
 
   const handleSendWhatsAppMessage = () => {
@@ -24,34 +29,41 @@ const Sidebar = () => {
         alert("Type some message before")
     }
   };
+  const PostLength = feed.length
+  const ProjectLength = work.length
   return (
     <div className="w-[50%] lg:w-[100%]">
       <div className="banner relative">
-        <Image alt="work" src={banner} className="w-full h-[200px] sm:h-[180px]" />
+        <Image alt="work" src={bannerImage?.bannerImage} 
+        width={300}
+        height={200}
+        className="w-full h-[200px] sm:h-[180px]" />
         <div className="image absolute top-[70%] sm:top-[80%]  mx-4">
           <Image
             alt="work"
-            src={dp}
+            src={dpImage?.profileImage}
             className=" w-[150px] h-[150px] sm:w-[100px] sm:h-[100px] rounded-full border-2 border-white"
+            width={150}
+            height={150}
           />
         </div>
       </div>
       <div className="w-full flex items-center justify-end gap-16 px-4 mt-4 sm:gap-8 sm:text-sm">
         <span className="">
-          <span className="font-bold">24</span> Posts
+          <span className="font-bold">{PostLength}</span> Posts
         </span>
         <span className="">
-          <span className="font-bold">10</span> Projects
+          <span className="font-bold">{ProjectLength}</span> Projects
         </span>
         
       </div>
       <div className="overview px-4 p-4 ">
         <div className="flex items-center justify-between mt-3">
         <span className="font-bold text-[2rem] sm:text-[1.2rem] flex items-center justify-center gap-2">Shailesh Attri </span>
-        <span className="  bg-brand-fill px-3 py-1 rounded-full flex items-center justify-center gap-2 cursor-pointer">
+        <a href={resume} download="Shailesh-Resume.pdf" className="  bg-brand-fill px-3 py-1 rounded-full flex items-center justify-center gap-2 cursor-pointer">
           <MdDownload />
           Resume
-        </span>
+        </a>
         </div>
         <p className="mb-2 text-gray-300 sm:text-sm">Brings ideas to life with code! ✨</p>
         <p className="text-gray-300 sm:text-sm">
