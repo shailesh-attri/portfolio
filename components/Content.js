@@ -27,9 +27,9 @@ const Content = () => {
           ))}
         </div>
         <div className="menuContent h-[800px]">
-          {selectedMenu === "feed" && <Feed />}
+          {/* {selectedMenu === "feed" && <Feed />} */}
           {selectedMenu === "about" && <About />}
-          {selectedMenu === "work" && <Work />}
+          {/* {selectedMenu === "work" && <Work />} */}
           {selectedMenu === "gallery" && <Gallery />}
         </div>
       </div>
