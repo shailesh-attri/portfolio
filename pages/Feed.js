@@ -9,10 +9,6 @@ import { CiShare1 } from "react-icons/ci";
 import { MyApi } from "@/app/api/api";
 const Feed = () => {
   const { feed,dpImage } = useContext(MyApi);
-  const [videoIds, setVideoIds] = useState(["kaK3ye8rczA?si=wnqhFLfwpMwFnWgU"]);
-  const embedLinks = videoIds.map(
-    (videoId) => `https://www.youtube.com/embed/${videoId}`
-  );
 
   return (
     <div className="overflow-scroll h-[800px] ">
@@ -59,10 +55,10 @@ const Feed = () => {
                   {feed?.youtubeIdLink && (
                     <div className="video-container ">
                       <iframe
-                        width="600"
-                        height="315"
+                        // width="600"
+                        // height="315"
                         src={`https://www.youtube.com/embed/${feed?.youtubeIdLink}`}
-                        className="rounded-xl"
+                        className="rounded-xl w-[600px] h-[400px] xl:w-[400px] xl:h-[300px] lg:w-[600px] md:w-[400px] sm:w-[300px]"
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen

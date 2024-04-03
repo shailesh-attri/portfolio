@@ -32,7 +32,7 @@ const Sidebar = () => {
   const PostLength = feed.length
   const ProjectLength = work.length
   return (
-    <div className="w-[50%] lg:w-[100%]">
+    <div className="w-[50%] lg:w-[100%] 2xl:w-[100%]">
       <div className="banner relative">
         <Image alt="work" src={bannerImage?.bannerImage} 
         width={300}
