@@ -15,7 +15,7 @@ const Feed = () => {
     const query3 = '*[_type == "feed"]';
     client.fetch(query3).then((data) => {
       setFeed(data || []);
-      sendFeedCount(data?.length)
+      sendFeedCount(data)
       console.log("Feed", data);
     }).catch(error => {
       console.error("Error fetching feed data:", error);

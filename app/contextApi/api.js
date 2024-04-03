@@ -4,16 +4,13 @@ const UserApi = createContext();
 
 const UserApiProvider = ({ children }) => {
   const [dpImage, setDpImage] = useState(null);
-  const [feedCount, setFeedCount] = useState(0);
-  const [projectCount, setProjectCount] = useState(0);
+  const [feedCount, setFeedCount] = useState([]);
+  
 
   const sendFeedCount = (data) => {
     setFeedCount(data);
   };
-  const sendProjectCount = (data) => {
-    setProjectCount(data);
-  };
-
+  
   const sendDpImage = (data) => {
     setDpImage(data);
   };
@@ -22,11 +19,9 @@ const UserApiProvider = ({ children }) => {
     <UserApi.Provider
       value={{
         sendFeedCount,
-        sendProjectCount,
         sendDpImage,
         dpImage,
         feedCount,
-        projectCount,
       }}
     >
       {children}

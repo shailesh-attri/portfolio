@@ -17,7 +17,7 @@ const Sidebar = () => {
   const [dpImage, setDpImage] = useState(null)
   const [bannerImage, setBannerImage] = useState(null)
   const [resume, setResume] = useState(null)
-  const [projectCount, setProjectCount] = useState(0)
+  const [projectCount, setProjectCount] = useState([])
   useEffect(()=>{
     const query5 = '*[_type == "dpBannerImage"]';
     client.fetch(query5).then((data) => {
@@ -37,7 +37,7 @@ const Sidebar = () => {
 
     const query2 = '*[_type == "work"]';
     client.fetch(query2).then((data) => {
-      setProjectCount(data?.length)
+      setProjectCount(data)
       console.log("work", data);
     }).catch(error => {
       console.error("Error fetching work data:", error);
@@ -56,8 +56,8 @@ const Sidebar = () => {
         alert("Type some message before")
     }
   };
-  const PostLength = feedCount
-  const ProjectLength = projectCount
+  const PostLength = feedCount?.length
+  const ProjectLength = projectCount?.length
   return (
     <div className="w-[50%] lg:w-[100%] 2xl:w-[100%]">
       <div className="banner relative">

@@ -5,9 +5,7 @@ import { LuMonitor } from "react-icons/lu";
 import { FaCode } from "react-icons/fa";
 import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
-import { UserApi } from "@/app/contextApi/api";
 const Work = () => {
-  const {sendProjectCount} = useContext(UserApi);
   const [work , setWork] = useState([])
   useEffect(()=>{
     const query2 = '*[_type == "work"]';
