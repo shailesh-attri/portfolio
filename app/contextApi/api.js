@@ -4,8 +4,8 @@ const UserApi = createContext();
 
 const UserApiProvider = ({ children }) => {
   const [dpImage, setDpImage] = useState(null);
-  const [feedCount, setFeedCount] = useState([]);
-  const [projectCount, setProjectCount] = useState([]);
+  const [feedCount, setFeedCount] = useState(0);
+  const [projectCount, setProjectCount] = useState(0);
 
   const sendFeedCount = (data) => {
     setFeedCount(data);

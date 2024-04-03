@@ -17,7 +17,7 @@ const Sidebar = () => {
   const [dpImage, setDpImage] = useState(null)
   const [bannerImage, setBannerImage] = useState(null)
   const [resume, setResume] = useState(null)
-  const [projectCount, setProjectCount] = useState(null)
+  const [projectCount, setProjectCount] = useState(0)
   useEffect(()=>{
     const query5 = '*[_type == "dpBannerImage"]';
     client.fetch(query5).then((data) => {
