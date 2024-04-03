@@ -152,7 +152,7 @@ const Sidebar = ({sendDpImageToSidebar}) => {
             <a href="tel:+919045074895" className="bg-brand-fill px-4 py-1 rounded-full text-sm flex items-center justify-center gap-1">Call us</a>
         </div>
       </div>
-      <div className="contact  p-4 flex items-center justify-between">
+      <div className="contact   flex items-center justify-between mt-2 p-2">
         <input
         className="px-4 w-full  rounded-l-full bg-gray-800 h-[50px] text-sm"
           type="text"
@@ -160,7 +160,7 @@ const Sidebar = ({sendDpImageToSidebar}) => {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message"
         />
-        <button onClick={handleSendWhatsAppMessage} className="bg-brand-fill px-4 p-2 rounded-r-full text-sm flex items-center justify-center gap-1">
+        <button onClick={handleSendWhatsAppMessage} className="bg-brand-fill px-4 h-[50px]  rounded-r-full text-sm flex items-center justify-center gap-1">
          <FaWhatsapp/> Send
         </button>
       </div>

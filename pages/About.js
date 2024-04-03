@@ -22,17 +22,13 @@ const About = () => {
       </div>
       <h1 className="text-[2rem] font-bold">Hello friends 👋!!</h1>
       <p className="mb-4 text-gray-300">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt,
-        mollitia.
+        I'm Shailesh <i>(pronounced as 'shail-esh')</i>. I'm a web developer that thrives on bringing ideas to life with code!
         <br />
         <br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam,
-        molestias. Accusamus omnis natus quia molestias?
+        As a MERN stack developer and a passionate creator of YouTube content, I'm deeply invested in transforming ideas into reality through coding. I advocate for unleashing creativity in coding, empowering others to enhance their skills and capabilities.
         <br />
         <br />
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde impedit
-        debitis molestias beatae incidunt velit doloremque, temporibus sapiente
-        distinctio ut, minus tenetur iste, voluptatibus asperiores.
+        Moreover, I'm pursuing a Master's in Computer Applications from Galgotias University, further enriching my knowledge and expertise in the field. One of my notable projects includes developing a MERN chat application using Socket.IO, showcasing my dedication to innovative solutions and sharing knowledge with the community.
       </p>
 
       {wall && (
@@ -46,19 +42,12 @@ const About = () => {
         Shailesh is doing something
       </span>
       <p className="mb-4 text-gray-300">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt,
-        mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Totam, impedit!
+      My journey as a developer allows me to delve into various aspects of MERN stack development, from building robust backends with Node.js to crafting dynamic user interfaces with React.js. I'm eager to contribute to the community and collaborate with like-minded individuals to create impactful projects.
         <br />
         <br />
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde impedit
-        debitis molestias beatae incidunt velit doloremque, temporibus sapiente
-        distinctio ut, minus tenetur iste, voluptatibus asperiores. Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Esse distinctio totam
-        minima exercitationem odio reprehenderit ut voluptate aut quos dolorum.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quisquam,
-        voluptates consectetur doloremque nobis corporis saepe eos. Placeat,
-        quam consequatur.
+        I am excited to bring my expertise in MERN stack development, passion for learning, and dedication to excellence to your team. Together, we can create innovative solutions and drive success in your organization."
+
+        Thank you
       </p>
 
       <h1 className="font-bold text-[2rem] text-gray-300" id='skills'>Skills</h1>

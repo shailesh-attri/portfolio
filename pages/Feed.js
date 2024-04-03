@@ -47,7 +47,7 @@ const Feed = ({profileImage}) => {
                   </time>
                 </div>
                 <div className="emotion  text-[0.69rem] py-0 px-3 inline-flex items-center gap-1 bg-surface-4 inline rounded-full">
-                  🌴 Feeling Fresh
+                  🌴 {feed?.feelings}
                 </div>
                 <div className="writing flex flex-col items-start justify-start">
                   <h1 className="text-[1rem] font-bold">{feed.title}</h1>

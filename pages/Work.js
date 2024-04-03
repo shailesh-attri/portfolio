@@ -22,7 +22,7 @@ const Work = () => {
     {work && work?.map((work)=>(
 
       <div key={work._id} className="card px-4 p-4 flex flex-col items-start justify-start w-full h-auto   mb-4">
-        <h1 className="font-bold text-[1rem] text-brand-stroke w-full">
+        <h1 className="font-bold text-[2rem] text-brand-stroke w-full">
           {work.title}
         </h1>
         <p className="text-[0.80rem] text-gray-400 mb-2 w-full">{work.duration}</p>
@@ -30,7 +30,7 @@ const Work = () => {
           {work.description}
         </p>
         
-        <p className="mb-4 text-sm font-bold text-gray-300">
+        <p className="mb-4 text-sm font-bold text-gray-300 w-full">
           <span className="font-bold">Tech: </span>{work?.tech}
         </p>
         
