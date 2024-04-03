@@ -28,7 +28,7 @@ const Feed = ({profileImage}) => {
           feed?.map((feed) => (
             <div
               key={feed._id}
-              className="feedCard flex  items-start gap-2 p-4 hover:bg-surface-2 hover:rounded-xl transition-all duration-200  ease-linear mb-4"
+              className="feedCard flex  items-start gap-2 p-4  mb-4"
             >
               <Image
                 alt="wall"

@@ -21,7 +21,7 @@ const Work = () => {
     <div className="overflow-scroll h-[800px] ">
     {work && work?.map((work)=>(
 
-      <div key={work._id} className="card px-4 p-4 flex flex-col items-start justify-start w-full h-auto  hover:bg-surface-2 hover:rounded-xl transition-all duration-200  ease-linear mb-4">
+      <div key={work._id} className="card px-4 p-4 flex flex-col items-start justify-start w-full h-auto   mb-4">
         <h1 className="font-bold text-[1rem] text-brand-stroke">
           {work.title}
         </h1>
