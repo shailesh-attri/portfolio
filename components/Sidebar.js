@@ -10,18 +10,20 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import SocialIcons from "./SocialIcons";
 import { MdDownload } from "react-icons/md";
-// import { MyApi } from "@/app/api/api";
+import { UserApi } from "@/app/contextApi/api";
 import { client } from "@/app/sanity_client";
 const Sidebar = () => {
-  // const {handlerAPI,dpImage, bannerImage, feed, work,resume} = useContext(MyApi)
+  const {feedCount,sendDpImage} = useContext(UserApi)
   const [dpImage, setDpImage] = useState(null)
   const [bannerImage, setBannerImage] = useState(null)
   const [resume, setResume] = useState(null)
+  const [projectCount, setProjectCount] = useState(null)
   useEffect(()=>{
     const query5 = '*[_type == "dpBannerImage"]';
     client.fetch(query5).then((data) => {
       setDpImage(data[0] || null);
       setBannerImage(data[0] || null);
+      sendDpImage(data[0] || null)
     }).catch(error => {
       console.error("Error fetching dpBannerImage data:", error);
     });
@@ -31,6 +33,14 @@ const Sidebar = () => {
       setResume(data)
     }).catch(error => {
       console.error("Error fetching resume data:", error);
+    });
+
+    const query2 = '*[_type == "work"]';
+    client.fetch(query2).then((data) => {
+      setProjectCount(data?.length)
+      console.log("work", data);
+    }).catch(error => {
+      console.error("Error fetching work data:", error);
     });
   },[])
   const [message, setMessage] = useState("");
@@ -46,8 +56,8 @@ const Sidebar = () => {
         alert("Type some message before")
     }
   };
-  const PostLength = 24
-  const ProjectLength = 15
+  const PostLength = feedCount
+  const ProjectLength = projectCount
   return (
     <div className="w-[50%] lg:w-[100%] 2xl:w-[100%]">
       <div className="banner relative">

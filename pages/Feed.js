@@ -7,12 +7,15 @@ import { VscComment } from "react-icons/vsc";
 import { FaRegHeart } from "react-icons/fa";
 import { CiShare1 } from "react-icons/ci";
 import { client } from "@/app/sanity_client";
+import { UserApi } from "@/app/contextApi/api";
 const Feed = () => {
+  const {sendFeedCount,dpImage} = useContext(UserApi);
   const [feed, setFeed ] = useState([])
   useEffect(()=>{
     const query3 = '*[_type == "feed"]';
     client.fetch(query3).then((data) => {
       setFeed(data || []);
+      sendFeedCount(data?.length)
       console.log("Feed", data);
     }).catch(error => {
       console.error("Error fetching feed data:", error);
@@ -29,7 +32,7 @@ const Feed = () => {
             >
               <Image
                 alt="wall"
-                src={user}
+                src={dpImage?.profileImage}
                 width={60}
                 height={60}
                 className="rounded-full"
@@ -60,7 +63,7 @@ const Feed = () => {
                       height={100}
                     />
                   )}{" "}
-                  {/* {feed?.youtubeIdLink && (
+                  {feed?.youtubeIdLink && (
                     <div className="video-container ">
                       <iframe
                         // width="600"
@@ -72,7 +75,7 @@ const Feed = () => {
                         allowFullScreen
                       ></iframe>
                     </div>
-                  )} */}
+                  )}
                 </div>
                 <div className="likes flex items-center justify-around text-gray-500 ">
                   <FaRegHeart className="cursor-pointer" />
