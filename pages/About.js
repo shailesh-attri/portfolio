@@ -25,7 +25,7 @@ const About = () => {
       </div>
       <h1 className="text-[2rem] font-bold">Hello friends 👋!!</h1>
       <p className="mb-4 text-gray-300">
-        I&apos;m Shailesh <i>(pronounced as &apos;shail-esh&apos;)</i>. I&apos;m a web developer that thrives on bringing ideas to life with code!
+        I&apos;m Shailesh <i> pronounced as shail-esh</i>. I&apos;m a web developer that thrives on bringing ideas to life with code!
         <br />
         <br />
         As a MERN stack developer and a passionate creator of YouTube content, I&apos;m deeply invested in transforming ideas into reality through coding. I advocate for unleashing creativity in coding, empowering others to enhance their skills and capabilities.
