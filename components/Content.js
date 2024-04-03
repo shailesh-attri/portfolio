@@ -4,7 +4,8 @@ import Feed from "@/pages/Feed";
 import About from "@/pages/About";
 import Work from "@/pages/Work";
 import Gallery from "@/pages/Gallery";
-const Content = () => {
+const Content = ({profileImage}) => {
+  
   const Menu = ["Feed", "About", "Work", "Gallery"];
   const [selectedMenu, setSelectedMenu] = useState("feed");
 
@@ -27,7 +28,7 @@ const Content = () => {
           ))}
         </div>
         <div className="menuContent h-[800px]">
-          {selectedMenu === "feed" && <Feed />}
+          {selectedMenu === "feed" && <Feed profileImage={profileImage}/>}
           {selectedMenu === "about" && <About />}
           {selectedMenu === "work" && <Work />}
           {selectedMenu === "gallery" && <Gallery />}

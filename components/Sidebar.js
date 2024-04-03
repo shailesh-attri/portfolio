@@ -10,14 +10,13 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import SocialIcons from "./SocialIcons";
 import { MdDownload } from "react-icons/md";
-import { UserApi } from "@/app/contextApi/api";
 import { client } from "@/app/sanity_client";
-const Sidebar = () => {
-  const {feedCount,sendDpImage} = useContext(UserApi)
+const Sidebar = ({sendDpImageToSidebar}) => {
   const [dpImage, setDpImage] = useState(null)
   const [bannerImage, setBannerImage] = useState(null)
   const [resume, setResume] = useState(null)
   const [projectCount, setProjectCount] = useState([])
+  const [feed, setFeed ] = useState([])
   useEffect(()=>{
     const query5 = '*[_type == "dpBannerImage"]';
     client.fetch(query5).then((data) => {
@@ -27,6 +26,8 @@ const Sidebar = () => {
     }).catch(error => {
       console.error("Error fetching dpBannerImage data:", error);
     });
+
+    
 
     const query6 = '*[_type == "resume"][0].fileLink';
     client.fetch(query6).then((data) => {
@@ -42,7 +43,25 @@ const Sidebar = () => {
     }).catch(error => {
       console.error("Error fetching work data:", error);
     });
+
+    
+  
+    const query3 = '*[_type == "feed"]';
+    client.fetch(query3).then((data) => {
+      setFeed(data || []);
+      console.log("Feed", data);
+    }).catch(error => {
+      console.error("Error fetching feed data:", error);
+    });
+
+    
   },[])
+  useEffect(()=>{
+    const sendDpImage = ()=>{
+      sendDpImageToSidebar(dpImage?.profileImage);
+    }
+    sendDpImage()
+  },[dpImage])
   const [message, setMessage] = useState("");
 
   const handleSendWhatsAppMessage = () => {
@@ -56,7 +75,7 @@ const Sidebar = () => {
         alert("Type some message before")
     }
   };
-  const PostLength = feedCount?.length
+  const PostLength = feed?.length
   const ProjectLength = projectCount?.length
   return (
     <div className="w-[50%] lg:w-[100%] 2xl:w-[100%]">

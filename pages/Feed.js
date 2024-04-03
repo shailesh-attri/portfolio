@@ -7,15 +7,15 @@ import { VscComment } from "react-icons/vsc";
 import { FaRegHeart } from "react-icons/fa";
 import { CiShare1 } from "react-icons/ci";
 import { client } from "@/app/sanity_client";
-import { UserApi } from "@/app/contextApi/api";
-const Feed = () => {
-  const {sendFeedCount,dpImage} = useContext(UserApi);
+
+
+const Feed = ({profileImage}) => {
+  
   const [feed, setFeed ] = useState([])
   useEffect(()=>{
     const query3 = '*[_type == "feed"]';
     client.fetch(query3).then((data) => {
       setFeed(data || []);
-      sendFeedCount(data)
       console.log("Feed", data);
     }).catch(error => {
       console.error("Error fetching feed data:", error);
@@ -32,7 +32,7 @@ const Feed = () => {
             >
               <Image
                 alt="wall"
-                src={dpImage?.profileImage}
+                src={profileImage}
                 width={60}
                 height={60}
                 className="rounded-full"
