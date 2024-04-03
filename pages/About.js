@@ -1,11 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import wall from "../assets/p1.jpg";
 import sign from "../assets/signature.png";
 import SocialIcons from "@/components/SocialIcons";
-import { MyApi } from "@/app/api/api";
+import { client } from "@/app/sanity_client";
 const About = () => {
-  const {skills} = useContext(MyApi)
+  const [skills, setSkills] = useState([])
+  useEffect(()=>{
+    const query4 = '*[_type == "skills"]';
+    client.fetch(query4).then((data) => {
+      setSkills(data[0].technologies || []);
+    }).catch(error => {
+      console.error("Error fetching skills data:", error);
+    });
+  },[])
   return (
     <div className="overflow-scroll h-[800px] px-4 p-4">
       <div className="flex items-center justify-start gap-2">

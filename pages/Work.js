@@ -1,12 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import wall from "../assets/p1.jpg";
 import { LuMonitor } from "react-icons/lu";
 import { FaCode } from "react-icons/fa";
 import SocialIcons from "@/components/SocialIcons";
-import { MyApi } from "@/app/api/api";
+import { client } from "@/app/sanity_client";
 const Work = () => {
-  const {work} = useContext(MyApi)
+  const [work , setWork] = useState([])
+  useEffect(()=>{
+    const query2 = '*[_type == "work"]';
+    client.fetch(query2).then((data) => {
+      setWork(data || []);
+      console.log("work", data);
+    }).catch(error => {
+      console.error("Error fetching work data:", error);
+    });
+  },[])
   return (
     <div className="overflow-scroll h-[800px] ">
     {work && work?.map((work)=>(

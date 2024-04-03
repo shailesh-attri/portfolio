@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import wall from "../assets/p1.jpg";
 import user from "../assets/user.jpg";
@@ -6,10 +6,18 @@ import SocialIcons from "@/components/SocialIcons";
 import { VscComment } from "react-icons/vsc";
 import { FaRegHeart } from "react-icons/fa";
 import { CiShare1 } from "react-icons/ci";
-import { MyApi } from "@/app/api/api";
+import { client } from "@/app/sanity_client";
 const Feed = () => {
-  const { feed,dpImage } = useContext(MyApi);
-
+  const [feed, setFeed ] = useState([])
+  useEffect(()=>{
+    const query3 = '*[_type == "feed"]';
+    client.fetch(query3).then((data) => {
+      setFeed(data || []);
+      console.log("Feed", data);
+    }).catch(error => {
+      console.error("Error fetching feed data:", error);
+    });
+  },[])
   return (
     <div className="overflow-scroll h-[800px] ">
       <div className="flex flex-col items-start gap-2">
@@ -21,7 +29,7 @@ const Feed = () => {
             >
               <Image
                 alt="wall"
-                src={dpImage?.profileImage}
+                src={user}
                 width={60}
                 height={60}
                 className="rounded-full"
@@ -52,7 +60,7 @@ const Feed = () => {
                       height={100}
                     />
                   )}{" "}
-                  {feed?.youtubeIdLink && (
+                  {/* {feed?.youtubeIdLink && (
                     <div className="video-container ">
                       <iframe
                         // width="600"
@@ -64,7 +72,7 @@ const Feed = () => {
                         allowFullScreen
                       ></iframe>
                     </div>
-                  )}
+                  )} */}
                 </div>
                 <div className="likes flex items-center justify-around text-gray-500 ">
                   <FaRegHeart className="cursor-pointer" />
