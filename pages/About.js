@@ -4,16 +4,19 @@ import wall from "../assets/p1.jpg";
 import sign from "../assets/signature.png";
 import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
+
 const About = () => {
-  const [skills, setSkills] = useState([])
-  useEffect(()=>{
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
     const query4 = '*[_type == "skills"]';
     client.fetch(query4).then((data) => {
       setSkills(data[0].technologies || []);
     }).catch(error => {
       console.error("Error fetching skills data:", error);
     });
-  },[])
+  }, []);
+
   return (
     <div className="overflow-scroll h-[800px] px-4 p-4">
       <div className="flex items-center justify-start gap-2">
@@ -22,13 +25,13 @@ const About = () => {
       </div>
       <h1 className="text-[2rem] font-bold">Hello friends 👋!!</h1>
       <p className="mb-4 text-gray-300">
-        I'm Shailesh <i>(pronounced as 'shail-esh')</i>. I'm a web developer that thrives on bringing ideas to life with code!
+        I&apos;m Shailesh <i>(pronounced as &apos;shail-esh&apos;)</i>. I&apos;m a web developer that thrives on bringing ideas to life with code!
         <br />
         <br />
-        As a MERN stack developer and a passionate creator of YouTube content, I'm deeply invested in transforming ideas into reality through coding. I advocate for unleashing creativity in coding, empowering others to enhance their skills and capabilities.
+        As a MERN stack developer and a passionate creator of YouTube content, I&apos;m deeply invested in transforming ideas into reality through coding. I advocate for unleashing creativity in coding, empowering others to enhance their skills and capabilities.
         <br />
         <br />
-        Moreover, I'm pursuing a Master's in Computer Applications from Galgotias University, further enriching my knowledge and expertise in the field. One of my notable projects includes developing a MERN chat application using Socket.IO, showcasing my dedication to innovative solutions and sharing knowledge with the community.
+        Moreover, I&apos;m pursuing a Master&apos;s in Computer Applications from Galgotias University, further enriching my knowledge and expertise in the field. One of my notable projects includes developing a MERN chat application using Socket.IO, showcasing my dedication to innovative solutions and sharing knowledge with the community.
       </p>
 
       {wall && (
@@ -42,19 +45,20 @@ const About = () => {
         Shailesh is doing something
       </span>
       <p className="mb-4 text-gray-300">
-      My journey as a developer allows me to delve into various aspects of MERN stack development, from building robust backends with Node.js to crafting dynamic user interfaces with React.js. I'm eager to contribute to the community and collaborate with like-minded individuals to create impactful projects.
+        My journey as a developer allows me to delve into various aspects of MERN stack development, from building robust backends with Node.js to crafting dynamic user interfaces with React.js. I&apos;m eager to contribute to the community and collaborate with like-minded individuals to create impactful projects.
         <br />
         <br />
-        I am excited to bring my expertise in MERN stack development, passion for learning, and dedication to excellence to your team. Together, we can create innovative solutions and drive success in your organization."
-
+        I am excited to bring my expertise in MERN stack development, passion for learning, and dedication to excellence to your team. Together, we can create innovative solutions and drive success in your organization.
+        <br />
+        <br />
         Thank you
       </p>
 
       <h1 className="font-bold text-[2rem] text-gray-300" id='skills'>Skills</h1>
       <div className="flex items-center justify-center gap-2 flex-wrap mb-8">
-      {skills && skills?.map((skill, i) =>(
-        <span key={i} className="border-2 border-gray-600 px-4 py-2 text-brand-fill rounded-lg">{skill}</span>
-      ))}
+        {skills && skills?.map((skill, i) => (
+          <span key={i} className="border-2 border-gray-600 px-4 py-2 text-brand-fill rounded-lg">{skill}</span>
+        ))}
       </div>
       <h1 className="font-bold text-[2rem] text-gray-300" id='education'>Education</h1>
       <div className="education">
@@ -72,7 +76,7 @@ const About = () => {
 
       </div>
       <div className="sign flex flex-col items-start justify-start">
-      <h1 className="font-bold text-[1rem]">Stay awesome!</h1>
+        <h1 className="font-bold text-[1rem]">Stay awesome!</h1>
         <Image
           src={sign}
           className="h-[200px] text-start rounded-md mb-4"
