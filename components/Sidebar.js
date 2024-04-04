@@ -89,7 +89,7 @@ const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
   return (
     <div className="w-[50%] lg:w-[100%] 2xl:w-[100%]">
       <div className="banner relative">
-        <Image alt="work" src={bannerImage?.bannerImage} 
+        <img alt="work" src={bannerImage?.bannerImage} 
         width={300}
         height={200}
         className="w-full h-[200px] sm:h-[180px]" />

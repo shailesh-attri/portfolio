@@ -19,7 +19,7 @@ const Content = ({profileImage,menu,SkillMenu}) => {
   },[menu,SkillMenu])
 
   return (
-    <div className="w-[50%] h-full lg:w-[100%] 2xl:w-[100%]">
+    <div className="w-[50%] h-full lg:w-[100%] 2xl:w-[100%] xl:w-[100%]">
       <div className="wrapper flex flex-col justify-center gap-8">
         <div className="Menu flex items-center justify-between">
           {Menu.map((item, index) => (

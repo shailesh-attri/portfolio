@@ -32,8 +32,9 @@ const Work = () => {
     };
   return (
     <div className="overflow-scroll h-[800px] ">
-    {work && work?.map((work)=>(
-
+    {work && work
+    .sort((a,b)=>new Date(b._updatedAt) - new Date(a._updatedAt))
+    .map((work)=>(
       <div key={work._id} className="card px-4 p-4 flex flex-col items-start justify-start w-full h-auto   mb-4">
         <h1 className="font-bold text-[2rem] text-brand-stroke w-full">
           {work.title}
@@ -55,7 +56,7 @@ const Work = () => {
         
         <div className="flex items-center justify-center gap-4 w-full">
           {work && (
-            <Image alt="work" className="w-[50%] h-[200px] mb-4 rounded" width={100} height={100} src={work.ProjectImage} />
+            <img alt="work" className="w-[50%] h-[200px] mb-4 rounded" width={100} height={100} src={work.ProjectImage} />
           )}
           <div className="flex w-[50%] flex-col items-center justify-center gap-4">
             <a target="blank" href={work.deployLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
