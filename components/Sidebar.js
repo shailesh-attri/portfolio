@@ -11,18 +11,27 @@ import { FaWhatsapp } from "react-icons/fa";
 import SocialIcons from "./SocialIcons";
 import { MdDownload } from "react-icons/md";
 import { client } from "@/app/sanity_client";
-const Sidebar = ({sendDpImageToSidebar}) => {
+const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
   const [dpImage, setDpImage] = useState(null)
   const [bannerImage, setBannerImage] = useState(null)
   const [resume, setResume] = useState(null)
   const [projectCount, setProjectCount] = useState([])
   const [feed, setFeed ] = useState([])
+
+  const handleMenu = (selectedMenu)=>{
+    sendMenuToggle(selectedMenu)
+    console.log("selectedMenu", selectedMenu);
+  }
+  const handleSkills = (selectedSkillsMenu)=>{
+    sendSkillMenu(selectedSkillsMenu)
+  }
+
   useEffect(()=>{
     const query5 = '*[_type == "dpBannerImage"]';
     client.fetch(query5).then((data) => {
       setDpImage(data[0] || null);
       setBannerImage(data[0] || null);
-      sendDpImage(data[0] || null)
+      setDpImage(data[0] || null)
     }).catch(error => {
       console.error("Error fetching dpBannerImage data:", error);
     });
@@ -98,7 +107,7 @@ const Sidebar = ({sendDpImageToSidebar}) => {
         <span className="">
           <span className="font-bold">{PostLength}</span> Posts
         </span>
-        <span className="">
+        <span className="cursor-pointer" onClick={()=>handleMenu('work')}>
           <span className="font-bold">{ProjectLength}</span> Projects
         </span>
         
@@ -115,7 +124,7 @@ const Sidebar = ({sendDpImageToSidebar}) => {
         <p className="text-gray-300 sm:text-sm">
           Junior web developer. Creative{" "}
           <span className="text-brand-fill">#MERN</span> developer. Content
-          creator. Lorem ipsum dolor sit amet.
+          creator. I&apos;m pursuing a Master&apos;s in Computer Applications from Galgotias University.
         </p>
       </div>
       <div className="grid grid-cols-2 items-start justify-start px-4 p-4 gap-1 text-gray-400 sm:text-sm">
@@ -138,9 +147,9 @@ const Sidebar = ({sendDpImageToSidebar}) => {
       </div>
       <p className="mb-4 text-sm  text-gray-400 px-4 py-4">
         <span className="font-bold">
-          Tech: MongoDB, ExpressJs, ReactJs,NodeJs
+          Tech: MongoDB, ExpressJs, ReactJs,NodeJs...
         </span>
-        <span className="text-sm">... see all skills in abouts.</span>
+        <span className="text-sm hover:text-brand-fill transition-all underline cursor-pointer" onClick={()=>handleSkills('about')}> see all skills in abouts.</span>
       </p>
       <div className="contact px-4 text-sm">
         <div className="mail flex items-center justify-between mb-2 ">
@@ -154,7 +163,7 @@ const Sidebar = ({sendDpImageToSidebar}) => {
       </div>
       <div className="contact   flex items-center justify-between mt-2 p-2">
         <input
-        className="px-4 w-full  rounded-l-full bg-gray-800 h-[50px] text-sm"
+        className="px-4 w-full  rounded-l-full bg-gray-800 h-[50px] text-sm focus:outline-none"
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -164,7 +173,7 @@ const Sidebar = ({sendDpImageToSidebar}) => {
          <FaWhatsapp/> Send
         </button>
       </div>
-      <SocialIcons></SocialIcons>
+      {/* <SocialIcons></SocialIcons> */}
     </div>
   );
 };

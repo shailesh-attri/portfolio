@@ -2,24 +2,24 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
-import { FaSnapchat } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 const SocialIcons = () => {
   return (
     <div className="w-full flex items-center justify-center gap-8 py-4">
-      <a className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
+      <a href="https://www.instagram.com/shailesh_attri/" target="blank" className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
         {" "}
         <FaInstagram />
       </a>
-      <a className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
+      <a href="https://github.com/shailesh-attri" target="blank" className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
         <FaGithub />
       </a>
-      <a className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
+      <a href="https://www.linkedin.com/in/shailesh-attri-web/" target="blank" className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
         {" "}
         <FaLinkedin />
       </a>
-      <a className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
+      <a href="https://www.youtube.com/channel/UCcgMSE-zN82Xg6vgkimpP-g" target="blank" className="p-2 hover:bg-gray-600 hover:rounded-xl transition-all cursor-pointer">
         {" "}
-        <FaSnapchat />
+        <FaYoutube />
       </a>
     </div>
   );

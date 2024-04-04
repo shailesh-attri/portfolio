@@ -5,8 +5,13 @@ import sign from "../assets/signature.png";
 import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
 
-const About = () => {
+const About = ({SkillMenu}) => {
   const [skills, setSkills] = useState([]);
+  useEffect(() =>{
+    if(SkillMenu){
+      window.location.hash = 'skills'
+    }
+  },[SkillMenu])
 
   useEffect(() => {
     const query4 = '*[_type == "skills"]';

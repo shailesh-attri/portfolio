@@ -21,6 +21,19 @@ const Feed = ({profileImage}) => {
       console.error("Error fetching feed data:", error);
     });
   },[])
+const paraGraphStyle = {
+  WebkitLineClamp:2,
+  WebkitBoxOrient:'vertical',
+  overflow: 'hidden',
+  display:'-webkit-box',
+  transition:"all 0.2s linear"
+}
+
+  const [expanded, setExpanded] = useState(false);
+  const [expandedFeedIndex, setExpandedFeedIndex] = useState(null);
+  const toggleExpand = (index) => {
+    setExpandedFeedIndex(index === expandedFeedIndex ? null : index);
+  };
   return (
     <div className="overflow-scroll h-[800px] ">
       <div className="flex flex-col items-start gap-2">
@@ -51,9 +64,16 @@ const Feed = ({profileImage}) => {
                 </div>
                 <div className="writing flex flex-col items-start justify-start">
                   <h1 className="text-[1rem] font-bold">{feed.title}</h1>
-                  <p className="para text-[0.80rem] mb-4 text-gray-300">
+                  <p className={`para flex  text-[0.80rem] mb-0 text-gray-300 `}
+                  style={expandedFeedIndex === feed._id  ? null : paraGraphStyle}
+                  >
                     {feed.description}
                   </p>
+                          {!expanded && (
+                <button className="text-brand-fill text-sm cursor-pointer mb-2" onClick={()=>toggleExpand(feed._id)}>
+                {expandedFeedIndex === feed._id  ? "Read less" : "Read more"}
+                </button>
+              )}
                   {feed.feedImage && (
                     <Image
                       alt="wall"
@@ -66,10 +86,8 @@ const Feed = ({profileImage}) => {
                   {feed?.youtubeIdLink && (
                     <div className="video-container ">
                       <iframe
-                        // width="600"
-                        // height="315"
-                        src={`https://www.youtube.com/embed/${feed?.youtubeIdLink}`}
-                        className="rounded-xl w-[600px] h-[400px] xl:w-[400px] xl:h-[300px] lg:w-[600px] md:w-[400px] sm:w-[300px]"
+                        src={`https://www.youtube.com/embed/${feed?.youtubeIdLink}?autoplay=1&mute=1&loop=1`}
+                        className="rounded-xl w-[630px] h-[400px] xl:w-[400px] xl:h-[300px] lg:w-[600px] md:w-[500px] sm:w-[300px]"
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen

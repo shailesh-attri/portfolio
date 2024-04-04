@@ -11,12 +11,25 @@ const Work = () => {
     const query2 = '*[_type == "work"]';
     client.fetch(query2).then((data) => {
       setWork(data || []);
-      sendProjectCount(data?.length)
       console.log("work", data);
     }).catch(error => {
       console.error("Error fetching work data:", error);
     });
   },[])
+
+  const paraGraphStyle = {
+    WebkitLineClamp:2,
+    WebkitBoxOrient:'vertical',
+    overflow: 'hidden',
+    display:'-webkit-box',
+    transition:"all 0.2s linear"
+  }
+  
+    const [expanded, setExpanded] = useState(false);
+    const [expandedFeedIndex, setExpandedFeedIndex] = useState(null);
+    const toggleExpand = (index) => {
+      setExpandedFeedIndex(index === expandedFeedIndex ? null : index);
+    };
   return (
     <div className="overflow-scroll h-[800px] ">
     {work && work?.map((work)=>(
@@ -26,10 +39,16 @@ const Work = () => {
           {work.title}
         </h1>
         <p className="text-[0.80rem] text-gray-400 mb-2 w-full">{work.duration}</p>
-        <p className="mb-4 text-gray-300 text-[0.80rem]">
+        <p className="mb-0 text-gray-300 text-[0.80rem]"
+        style={expandedFeedIndex === work._id  ? null : paraGraphStyle}
+        >
           {work.description}
         </p>
-        
+        {!expanded && (
+                <button className="text-brand-fill text-sm cursor-pointer mb-2" onClick={()=>toggleExpand(work._id)}>
+                {expandedFeedIndex === work._id  ? "Read less" : "Read more"}
+                </button>
+              )}
         <p className="mb-4 text-sm font-bold text-gray-300 w-full">
           <span className="font-bold">Tech: </span>{work?.tech}
         </p>
@@ -39,11 +58,11 @@ const Work = () => {
             <Image alt="work" className="w-[50%] h-[200px] mb-4 rounded" width={100} height={100} src={work.ProjectImage} />
           )}
           <div className="flex w-[50%] flex-col items-center justify-center gap-4">
-            <a href={work.deployLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
+            <a target="blank" href={work.deployLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
               <LuMonitor />
               View Live
             </a>
-            <a  href={work.githubLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
+            <a target="blank" href={work.githubLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
               <FaCode />
               Github code
             </a>
