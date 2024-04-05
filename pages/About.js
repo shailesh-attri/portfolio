@@ -4,7 +4,7 @@ import wall from "../assets/p1.jpg";
 import sign from "../assets/signature.png";
 import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
-
+import activity_pic from '../assets/about-pic.png'
 const About = ({SkillMenu}) => {
   const [skills, setSkills] = useState([]);
   useEffect(() =>{
@@ -42,12 +42,12 @@ const About = ({SkillMenu}) => {
       {wall && (
         <Image
           alt='wall'
-          src={wall}
+          src={activity_pic}
           className="h-[300px] w-full text-center rounded-md mb-1"
         />
       )}
       <span className="w-full flex items-center justify-center text-[0.69rem] text-gray-400 font-100 mb-4">
-        Shailesh is doing something
+        My NextJS Portfolio
       </span>
       <p className="mb-4 text-gray-300">
         My journey as a developer allows me to delve into various aspects of MERN stack development, from building robust backends with Node.js to crafting dynamic user interfaces with React.js. I&apos;m eager to contribute to the community and collaborate with like-minded individuals to create impactful projects.

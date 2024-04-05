@@ -1,14 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import Image from "next/image";
-import banner from "../assets/banner.png";
-import dp from "../assets/dp.jpg";
 import { MdWork } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { FaBirthdayCake } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
-import SocialIcons from "./SocialIcons";
 import { MdDownload } from "react-icons/md";
 import { client } from "@/app/sanity_client";
 const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
