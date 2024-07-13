@@ -24,7 +24,7 @@ const Content = ({profileImage,menu,SkillMenu}) => {
         <div className="Menu flex items-center justify-between">
           {Menu.map((item, index) => (
             <span
-              className={`items p-2 px-4 w-full text-center border-y-4 border-transparent cursor-pointer ${
+              className={`font-Lora items p-2 px-4 w-full text-center border-y-4 border-transparent cursor-pointer ${
                 selectedMenu === item.toLowerCase()
                   ? "border-b-brand-stroke bg-surface-2"
                   : ""

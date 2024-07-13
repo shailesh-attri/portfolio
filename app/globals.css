@@ -45,7 +45,14 @@
   --surface-4: var(--gray-7);
   --surface-alpha: hsl(var(--gray-10-hsl) / 65%);
 }
-
+@font-face {
+  font-family: 'Lora';
+  src: url('../Lora-Italic-VariableFont_wght.ttf') format('opentype'); /* Adjust the path to your font file */
+}
+@font-face {
+  font-family: 'Lora-Light';
+  src: url('../Lora-VariableFont_wght.ttf') format('opentype'); /* Adjust the path to your font file */
+}
 
 html {
   accent-color: var(--brand-fill);

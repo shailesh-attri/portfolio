@@ -58,6 +58,10 @@ module.exports = {
           4: 'var(--text-4)',
         }
       },
+      fontFamily: {
+        Lora: ['Lora', 'sans-serif'],
+        LoraLight: ['Lora-Light', 'sans-serif'],
+      },
     },
   },
   plugins: [],

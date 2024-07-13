@@ -5,7 +5,7 @@ import { client } from "@/app/sanity_client";
 
 const Gallery = () => {
   const [gallery, setGallery] = useState([]);
-
+document.title = 'Gallery | Shailesh attri'
   useEffect(() => {
     const query = '*[_type == "gallery"]';
     client.fetch(query).then((data) => {
@@ -27,7 +27,7 @@ const Gallery = () => {
   return (
     <div className="overflow-scroll h-[800px] px-4 p-4 relative">
       <h1 className="font-bold text-[2rem] mb-4">My Photos</h1>
-      <div className="grid grid-cols-2  gap-4">
+      <div className="grid grid-cols-3  gap-4">
         {rows.map((row, rowIndex) => (
           <div key={rowIndex} className="grid gap-4 md:grid-cols-1">
             {row.map((img, imgIndex) => (

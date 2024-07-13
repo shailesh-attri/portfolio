@@ -6,6 +6,7 @@ import { FaCode } from "react-icons/fa";
 import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
 const Work = () => {
+  document.title = 'Work | Shailesh attri'
   const [work , setWork] = useState([])
   useEffect(()=>{
     const query2 = '*[_type == "work"]';
@@ -36,11 +37,11 @@ const Work = () => {
     .sort((a,b)=>new Date(b._updatedAt) - new Date(a._updatedAt))
     .map((work)=>(
       <div key={work._id} className="card px-4 p-4 flex flex-col items-start justify-start w-full h-auto   mb-4">
-        <h1 className="font-bold text-[2rem] text-brand-stroke w-full">
+        <h1 className="font-bold text-[2rem] text-brand-stroke w-full font-Lora">
           {work.title}
         </h1>
         <p className="text-[0.80rem] text-gray-400 mb-2 w-full">{work.duration}</p>
-        <p className="mb-0 text-gray-300 text-[0.80rem]"
+        <p className="mb-0 text-gray-300 text-[0.80rem] font-LoraLight"
         style={expandedFeedIndex === work._id  ? null : paraGraphStyle}
         >
           {work.description}
@@ -50,8 +51,8 @@ const Work = () => {
                 {expandedFeedIndex === work._id  ? "Read less" : "Read more"}
                 </button>
               )}
-        <p className="mb-4 text-sm font-bold text-gray-300 w-full">
-          <span className="font-bold">Tech: </span>{work?.tech}
+        <p className="mb-4 text-sm font-LoraLight font-bold text-gray-300 w-full">
+          <span className="font-bold ">Tech: </span>{work?.tech}
         </p>
         
         <div className="flex items-center justify-center gap-4 w-full">
@@ -59,14 +60,18 @@ const Work = () => {
             <img alt="work" className="w-[50%] h-[200px] mb-4 rounded" width={100} height={100} src={work.ProjectImage} />
           )}
           <div className="flex w-[50%] flex-col items-center justify-center gap-4">
-            <a target="blank" href={work.deployLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
+          {work.deployLink &&
+            <a target="blank" href={work.deployLink} className="font-Lora w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
               <LuMonitor />
               View Live
             </a>
-            <a target="blank" href={work.githubLink} className="w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
+          }
+            {work?.githubLink && 
+            <a target="blank" href={work.githubLink} className="font-Lora w-full text-brand-fill p-2 rounded font-bold flex items-center justify-center gap-2 cursor-pointer">
               <FaCode />
               Github code
             </a>
+            }
           </div>
         </div>
       </div>

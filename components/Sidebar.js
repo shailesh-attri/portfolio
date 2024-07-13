@@ -3,11 +3,12 @@ import Image from "next/image";
 import { MdWork } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { FaBirthdayCake } from "react-icons/fa";
-import { SlCalender } from "react-icons/sl";
-import { IoLogoInstagram } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
-import { client } from "@/app/sanity_client";
+import { client } from "@/app/sanity_client"
+import { FaStackOverflow } from "react-icons/fa";;
+import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
   const [dpImage, setDpImage] = useState(null)
   const [bannerImage, setBannerImage] = useState(null)
@@ -111,50 +112,50 @@ const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
       </div>
       <div className="overview px-4 p-4 ">
         <div className="flex items-center justify-between mt-3">
-        <span className="font-bold text-[2rem] sm:text-[1.2rem] flex items-center justify-center gap-2">Shailesh Attri </span>
-        <a href={resume} download="Shailesh-Resume.pdf" className="  bg-brand-fill px-3 py-1 rounded-full flex items-center justify-center gap-2 cursor-pointer">
+        <span className="font-bold text-[2rem] sm:text-[1.2rem] flex items-center justify-center gap-2 font-Lora">Shailesh Attri </span>
+        <a href={resume} download="Shailesh-Resume.pdf" className="  font-LoraLight bg-brand-fill px-3 py-1 rounded-full flex items-center justify-center gap-2 cursor-pointer">
           <MdDownload />
           Resume
         </a>
         </div>
         <p className="mb-2 text-gray-300 sm:text-sm">Brings ideas to life with code! ✨</p>
-        <p className="text-gray-300 sm:text-sm">
+        <p className="text-gray-300 sm:text-sm font-LoraLight">
           Junior web developer. Creative{" "}
           <span className="text-brand-fill">#MERN</span> developer. Content
           creator. I&apos;m pursuing a Master&apos;s in Computer Applications from Galgotias University.
         </p>
       </div>
       <div className="grid grid-cols-2 items-start justify-start px-4 p-4 gap-1 text-gray-400 sm:text-sm">
-        <span className="flex items-center  gap-2">
-          <MdWork />
-          Available
-        </span>
-        <span className="flex items-center  gap-2">
+        <a href='https://www.linkedin.com/in/shailesh-attri-web/' className="flex items-center  gap-2">
+          <FaLinkedin />
+          LinkedIn
+        </a>
+        <a href="" className="flex items-center  gap-2">
           <FaGithub />
           Github
-        </span>
-        <span className="flex items-center  gap-2">
-          <FaBirthdayCake />
-          November 9th
-        </span>
-        <span className="flex items-center  gap-2">
-          <SlCalender />
-          Joined Nov 2022
-        </span>
+        </a>
+        <a href='' className="flex items-center  gap-2">
+          <FaInstagram />
+          Instagram
+        </a>
+        <a href='https://stackoverflow.com/users/26354985/shailesh-attri' className="flex items-center  gap-2">
+          <FaStackOverflow />
+          Stack-Overflow
+        </a>
       </div>
       <p className="mb-4 text-sm  text-gray-400 px-4 py-4">
-        <span className="font-bold">
+        <span className="font-bold font-Lora">
           Tech: MongoDB, ExpressJs, ReactJs,NodeJs...
         </span>
         <span className="text-sm hover:text-brand-fill transition-all underline cursor-pointer" onClick={()=>handleSkills('about')}> see all skills in abouts.</span>
       </p>
       <div className="contact px-4 text-sm">
         <div className="mail flex items-center justify-between mb-2 ">
-            <span className="text-gray-400 font-bold">shaileshattri83@gmail.com</span>
+            <span className="text-gray-400 font-bold font-Lora">shaileshattri83@gmail.com</span>
             <a href="mailto:shaileshattri83@gmail.com" className="bg-brand-fill px-4 py-1 rounded-full text-sm flex items-center justify-center gap-1">Mail us</a>
         </div>
         <div className="call flex items-center justify-between">
-            <span className="text-gray-400 font-bold">+91 9045074895</span>
+            <span className="text-gray-400 font-bold font-Lora">+91 9045074895</span>
             <a href="tel:+919045074895" className="bg-brand-fill px-4 py-1 rounded-full text-sm flex items-center justify-center gap-1">Call us</a>
         </div>
       </div>

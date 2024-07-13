@@ -9,6 +9,7 @@ import { CiShare1 } from "react-icons/ci";
 import { client } from "@/app/sanity_client";
 
 const Feed = ({ profileImage }) => {
+  document.title = 'Feed | Shailesh attri'
   const [feed, setFeed] = useState([]);
   useEffect(() => {
     const query3 = '*[_type == "feed"]';
@@ -66,9 +67,9 @@ const Feed = ({ profileImage }) => {
                     🌴 {feed?.feelings}
                   </div>
                   <div className="writing flex flex-col items-start justify-start">
-                    <h1 className="text-[1rem] font-bold">{feed.title}</h1>
+                    <h1 className="text-[1rem] font-bold font-Lora">{feed.title}</h1>
                     <p
-                      className={`para flex  text-[0.80rem] mb-0 text-gray-300 `}
+                      className={`font-LoraLight para flex  text-[0.80rem] mb-0 text-gray-300 `}
                       style={
                         expandedFeedIndex === feed._id ? null : paraGraphStyle
                       }
