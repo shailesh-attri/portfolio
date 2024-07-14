@@ -126,19 +126,19 @@ const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
         </p>
       </div>
       <div className="grid grid-cols-2 items-start justify-start px-4 p-4 gap-1 text-gray-400 sm:text-sm">
-        <a href='https://www.linkedin.com/in/shailesh-attri-web/' className="flex items-center  gap-2">
+        <a href='https://www.linkedin.com/in/shailesh-attri-web/' target="blank" className="flex items-center  gap-2">
           <FaLinkedin />
           LinkedIn
         </a>
-        <a href="" className="flex items-center  gap-2">
+        <a href="https://github.com/shailesh-attri" target="blank" className="flex items-center  gap-2">
           <FaGithub />
           Github
         </a>
-        <a href='' className="flex items-center  gap-2">
+        <a href='https://www.instagram.com/shailesh_attri' target="blank" className="flex items-center  gap-2">
           <FaInstagram />
           Instagram
         </a>
-        <a href='https://stackoverflow.com/users/26354985/shailesh-attri' className="flex items-center  gap-2">
+        <a href='https://stackoverflow.com/users/26354985/shailesh-attri' target="blank" className="flex items-center  gap-2">
           <FaStackOverflow />
           Stack-Overflow
         </a>
