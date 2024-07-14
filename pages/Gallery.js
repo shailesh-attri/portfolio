@@ -5,7 +5,9 @@ import { client } from "@/app/sanity_client";
 
 const Gallery = () => {
   const [gallery, setGallery] = useState([]);
-document.title = 'Gallery | Shailesh attri'
+  useEffect(() =>{
+    document.title = 'Gallery | Shailesh attri'
+  },[])
   useEffect(() => {
     const query = '*[_type == "gallery"]';
     client.fetch(query).then((data) => {

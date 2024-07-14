@@ -6,8 +6,10 @@ import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
 import activity_pic from '../assets/about-pic.png'
 const About = ({SkillMenu}) => {
-  document.title = 'About | Shailesh attri'
   const [skills, setSkills] = useState([]);
+  useEffect(() =>{
+    document.title = 'About | Shailesh attri'
+  },[])
   useEffect(() =>{
     if(SkillMenu){
       window.location.hash = 'skills'

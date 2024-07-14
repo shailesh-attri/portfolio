@@ -9,8 +9,10 @@ import { CiShare1 } from "react-icons/ci";
 import { client } from "@/app/sanity_client";
 
 const Feed = ({ profileImage }) => {
-  document.title = 'Feed | Shailesh attri'
   const [feed, setFeed] = useState([]);
+  useEffect(() =>{
+    document.title = 'Feed | Shailesh attri'
+  },[])
   useEffect(() => {
     const query3 = '*[_type == "feed"]';
     client

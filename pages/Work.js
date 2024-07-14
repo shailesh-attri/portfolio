@@ -6,8 +6,10 @@ import { FaCode } from "react-icons/fa";
 import SocialIcons from "@/components/SocialIcons";
 import { client } from "@/app/sanity_client";
 const Work = () => {
-  document.title = 'Work | Shailesh attri'
   const [work , setWork] = useState([])
+  useEffect(() =>{
+    document.title = 'Gallery | Shailesh attri'
+  },[])
   useEffect(()=>{
     const query2 = '*[_type == "work"]';
     client.fetch(query2).then((data) => {
