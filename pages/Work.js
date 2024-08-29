@@ -8,7 +8,7 @@ import { client } from "@/app/sanity_client";
 const Work = () => {
   const [work , setWork] = useState([])
   useEffect(() =>{
-    document.title = 'Gallery | Shailesh attri'
+    document.title = 'Work | Shailesh attri'
   },[])
   useEffect(()=>{
     const query2 = '*[_type == "work"]';

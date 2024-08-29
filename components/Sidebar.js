@@ -120,10 +120,11 @@ const Sidebar = ({sendDpImageToSidebar,sendMenuToggle,sendSkillMenu}) => {
         </div>
         <p className="mb-2 text-gray-300 sm:text-sm">Brings ideas to life with code! ✨</p>
         <p className="text-gray-300 sm:text-sm font-LoraLight">
-          Junior web developer. Creative{" "}
+          Full Stack Developer at <a href="https://bucle.dev" className="text-brand-fill">BucleLabs Pvt. Ltd. </a>, Gurugram, Haryana, Ind. Creative{" "}
           <span className="text-brand-fill">#MERN</span> developer. Content
-          creator. I&apos;m pursuing a Master&apos;s in Computer Applications from Galgotias University.
+          creator. Recently completed my Master&apos;s in Computer Applications from Galgotias University.
         </p>
+
       </div>
       <div className="grid grid-cols-2 items-start justify-start px-4 p-4 gap-1 text-gray-400 sm:text-sm">
         <a href='https://www.linkedin.com/in/shailesh-attri-web/' target="blank" className="flex items-center  gap-2">

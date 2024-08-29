@@ -10,9 +10,7 @@ import { client } from "@/app/sanity_client";
 
 const Feed = ({ profileImage }) => {
   const [feed, setFeed] = useState([]);
-  useEffect(() =>{
-    document.title = 'Feed | Shailesh attri'
-  },[])
+  
   useEffect(() => {
     const query3 = '*[_type == "feed"]';
     client
